@@ -8,6 +8,7 @@ function RetrieveComponents()
 	Inventory = exports["mythic-base"]:FetchComponent("Inventory")
 	Crafting = exports["mythic-base"]:FetchComponent("Crafting")
 	Jobs = exports["mythic-base"]:FetchComponent("Jobs")
+	Version = exports["mythic-base"]:FetchComponent("Version")
 end
 
 AddEventHandler("Core:Shared:Ready", function()
@@ -20,6 +21,7 @@ AddEventHandler("Core:Shared:Ready", function()
 		"Inventory",
 		"Crafting",
 		"Jobs",
+		"Version",
 	}, function(error)
 		if error then
 		end
@@ -30,6 +32,8 @@ AddEventHandler("Core:Shared:Ready", function()
 		Middleware:Add("Characters:Spawning", function(source)
 			RunRestaurantJobUpdate(source, true)
 		end, 2)
+
+		Version:Check('Mythic-Framework/Mythic-VersionCheckers', GetCurrentResourceName())
 	end)
 end)
 
