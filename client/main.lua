@@ -662,7 +662,7 @@ RegisterNetEvent("Restaurant:Client:CreatePoly", function(pickups, warmersList, 
 end)
 
 AddEventHandler("Restaurant:Client:Pickup", function(entity, data)
-	Inventory.Dumbfuck:Open(data.inventory)
+	Inventory.Container:Open(data.inventory)
 end)
 
 AddEventHandler("Restaurant:Client:ClockIn", function(_, data)
